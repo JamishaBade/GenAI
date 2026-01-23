@@ -3,7 +3,14 @@ const groq=new Groq({apiKey:process.env.GROQ_API_KEY});
 
 async function main(){
     const completion=await groq.chat.completions.create({
+        //basic parameter uses
+
+        temperature:0.3,// higher value (0-2) then more randomness
+        stop:'you', //stops when it sees this 
+        top_p:0.3,
         model:'llama-3.3-70b-versatile',
+        max_completion_tokens:10, //controls cost and runaway outputs
+        frequency_penalty:0.25, //pentaly for repeating tokens
         messages:[
             {
                 role:"assistant",
@@ -11,7 +18,7 @@ async function main(){
             },
             {
                 role:'user',
-                content:`Message: Bonjour. J'mapple Jamisha Bade. et tu?
+                content:`Message: Bonjour. J'mapple Jamisha Bade. et tu?. Je suis gentil et calm
                         Translated (in Nepali (but in english characters)):
                 `
 

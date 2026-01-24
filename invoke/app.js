@@ -1,7 +1,7 @@
 import Groq from 'groq-sdk';
 const groq=new Groq({apiKey:process.env.GROQ_API_KEY});
 
-async function main(){
+async function main(){ //asynchrnous function because it will call apis
     const completion=await groq.chat.completions.create({
         //basic parameter uses
 

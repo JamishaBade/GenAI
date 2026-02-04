@@ -1,5 +1,6 @@
-import Groq from 'groq-sdk';
-const groq=new Groq({apiKey:process.env.GROQ_API_KEY});
+import Groq from 'groq-sdk'; //importing GROQ client
+import 'dotenv/config';
+const groq=new Groq({apiKey:process.env.GROQ_API_KEY}); //creating the client
 
 async function main(){
     const completion=await groq.chat.completions.create({

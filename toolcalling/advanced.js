@@ -1,6 +1,7 @@
 import readline from 'node:readline/promises'
 import Groq from "groq-sdk";
 import { tavily } from "@tavily/core"; // web searching
+import 'dotenv/config'
 
 //Create a Tavily web search client with API key from environment variables
 const tvly = tavily({ apiKey: process.env.TAVILY_API_KEY });
@@ -16,8 +17,7 @@ async function main() {
       role: "system",
       content: `You are a smart personal assistent who answers the asked questions. 
         You have access to the following tools:
-        1. webSearch({ query: string }) // Search real-time information on the web
-        `,
+        1. webSearch({ query: string }) // Search real-time information on the web`,
     },
     {
       role: "user",
@@ -26,8 +26,7 @@ async function main() {
     },
   ];
   while (true) {
-    const
-    while (true) {
+
       //makes api call
 
       // JSON file sent to the AI server where the AI analyzes the problem and next decision like need and avaibality of the  tools.
@@ -92,7 +91,7 @@ async function main() {
     }
   }
   // an infinite loop (will break when AI gives the final answer)
-}
+
 
 main();
 

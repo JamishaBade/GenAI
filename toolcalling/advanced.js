@@ -1,4 +1,5 @@
 import readline from 'node:readline/promises'
+import { stdin as input, stdout as output } from "node:process";
 import Groq from "groq-sdk";
 import { tavily } from "@tavily/core"; // web searching
 import 'dotenv/config'
@@ -8,6 +9,8 @@ const tvly = tavily({ apiKey: process.env.TAVILY_API_KEY });
 
 //Create a Groq AI client with API key from environment variables
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+const rl = readline.createInterface({ input, output });
 
 // main async function
 async function main() {
@@ -25,6 +28,22 @@ async function main() {
       content: "What is Nepal Famous for?",
     },
   ];
+
+  while(true){
+      const userInput = await rl.question("\nYou: ");
+
+    if (userInput.toLowerCase() === "exit") {
+      console.log("See ya!");
+      break;
+    }
+
+    messages.push({
+      role: "user",
+      content: userInput,
+    });
+
+
+  
   while (true) {
 
       //makes api call
@@ -89,6 +108,7 @@ async function main() {
         }
       }
     }
+  }
   }
   // an infinite loop (will break when AI gives the final answer)
 

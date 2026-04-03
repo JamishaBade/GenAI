@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- the tailwind used is CDN (not good for actual production) -->
+  <body class="bg-neutral-900 text-white overflow-x-hidden">
+     <div class="container mx-auto max-w-3xl">
+        <!-- Messages -->
+         <!-- user message -->
+          <div class="my-6 bg-neutral-800 p-3 rounded-xl ml-auto max-w-fit">
+            Hi, how are you?
+                 </div>
+        <div class="max-w-fit">
+            I am fine, how are you?
+        </div>
+
+        <!-- text area -->
+        <div class="bg-neutral-800 p-2 rounded-4xl">
+                <textarea name="" id=""></textarea>
+                <div class="flext items-center justify-end">
+                    <button class="bg-white px-4 py-1 rounded-full text-black cursor-pointer hover:bg-gray-200">Ask </button>
+                </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
